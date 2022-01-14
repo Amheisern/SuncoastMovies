@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace SuncoastMovies
 {
@@ -14,6 +15,8 @@ namespace SuncoastMovies
 
             var movieCount = context.Movies.Count();
             Console.WriteLine($"There are {movieCount} movies in the database");
+
+            var moviesWithRatings = context.Movies.Include(movie => movie.Rating);
         }
     }
 }

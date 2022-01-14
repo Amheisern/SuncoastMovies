@@ -7,5 +7,7 @@ namespace SuncoastMovies
         public string PrimaryDirector { get; set; }
         public int YearReleased { get; set; }
         public string Genre { get; set; }
+        public int RatingId { get; set; }
+        public Rating Rating { get; set; }
     }
 }
