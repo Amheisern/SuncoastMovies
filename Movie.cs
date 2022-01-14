@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace SuncoastMovies
 {
     public class Movie
@@ -9,5 +11,6 @@ namespace SuncoastMovies
         public string Genre { get; set; }
         public int RatingId { get; set; }
         public Rating Rating { get; set; }
+        public List<Role> Roles { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace SuncoastMovies
         // Define a movies property that is a DbSet.
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Actor> Actors { get; set; }
         // Define a method required by EF that will configure our connection
         // to the database.
         //
