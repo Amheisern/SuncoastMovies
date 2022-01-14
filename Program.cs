@@ -17,6 +17,17 @@ namespace SuncoastMovies
             Console.WriteLine($"There are {movieCount} movies in the database");
 
             var moviesWithRatings = context.Movies.Include(movie => movie.Rating);
+            foreach (var movie in moviesWithRatings)
+            {
+                if (movie.Rating == null)
+                {
+                    Console.WriteLine($"There is a movie named {movie.Title} and has not been rated yet");
+                }
+                else
+                {
+                    Console.WriteLine($"There is a movie named {movie.Title} and a rating of {movie.Rating.Description}");
+                }
+            }
         }
     }
 }
