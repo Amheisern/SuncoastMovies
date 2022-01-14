@@ -16,8 +16,14 @@ namespace SuncoastMovies
             var movieCount = context.Movies.Count();
             Console.WriteLine($"There are {movieCount} movies in the database");
 
-            var moviesWithRatings = context.Movies.Include(movie => movie.Rating);
-            foreach (var movie in moviesWithRatings)
+            var moviesWithRatingsRolesAndActors = context.Movies.
+                                        // from our movie, please include the associated Rating object
+                                        Include(movie => movie.Rating).
+                                        // ... and from our movie, please include the associated Roles LIST
+                                        Include(movie => movie.Roles).
+                                        // THEN for each of roles, please include the associated Actor object
+                                        ThenInclude(role => role.Actor);
+            foreach (var movie in moviesWithRatingsRolesAndActors)
             {
                 if (movie.Rating == null)
                 {
